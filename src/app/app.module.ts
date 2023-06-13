@@ -3,14 +3,24 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HelloComponent } from './hello/hello.component';
+import { BemVindoComponent } from './bem-vindo/bem-vindo.components';
+import { FormsModule } from '@angular/forms';
+import { FuncionarioCardComponent } from './funcionario-card/funcionario-card.components';
+import { FuncionarioFormComponent } from './funcionario-form/funcionario-form.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HelloComponent,
+    BemVindoComponent,
+    FuncionarioCardComponent,
+    FuncionarioFormComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

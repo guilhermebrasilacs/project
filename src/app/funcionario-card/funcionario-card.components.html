@@ -1,0 +1,11 @@
+<div class="card" [ngStyle]="getEstilosCartao()">
+    <img class="card-img-top" src="https://randomuser.me/api/portraits/men/{{funcionario.id}}.jpg">
+    <div class="card-body"><span class ="badge" [ngClass]="{'rounded-pill text-bg-danger': isAdmin(), 'rounded-pill text-bg-primary': !isAdmin()}">{{funcionario.nome}}</span></div>
+</div>
+<style>
+    .card{
+        margin-left:30px;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+    }
+</style>
