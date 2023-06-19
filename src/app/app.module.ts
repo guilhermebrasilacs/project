@@ -12,6 +12,10 @@ import { CampoColoridoDirective } from './campo-colorido.directive';
 import { FuncionarioService } from './funcionario.service';
 import { FuncionarioAbreviadoService } from './funcionario-abreviado.service';
 
+const criarFuncionarioService =() => {
+  return new FuncionarioAbreviadoService(2);
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +31,7 @@ import { FuncionarioAbreviadoService } from './funcionario-abreviado.service';
     FormsModule
   ],
   providers: [
-    {provide: FuncionarioService, useClass: FuncionarioAbreviadoService}
+    {provide: FuncionarioService, useFactory: criarFuncionarioService}
   ],
   bootstrap: [AppComponent]
 })
