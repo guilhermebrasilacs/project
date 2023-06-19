@@ -2,6 +2,7 @@ import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 import { Component } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { Output } from '@angular/core';
+import { FuncionarioService } from '../funcionario.service';
 
 
 @Component({
@@ -9,21 +10,15 @@ import { Output } from '@angular/core';
   templateUrl: './funcionario-form.component.html',
   styleUrls: ['./funcionario-form.component.css']
 })
-export class FuncionarioFormComponent {
-    id = 0;
-    nome = '';
-    adicionado = false;
-    @Output() funcionarioAdicionado = new EventEmitter(); 
-    
-    adicionar(){
-      this.nome = this.nome;
-      this.adicionado = true;
-      
-      const funcionario  =({
-        nome: this.nome,
-        id: ++this.id,
-      });
+export class FuncionarioFormComponent{
+  id = 0;
+  nome;
+  adicionado=false;
+  
+  constructor(private funcionarioService: FuncionarioService){
+  }
 
-      this.funcionarioAdicionado.emit(funcionario);
-    }
+  adicionar(nome: string){
+    this.funcionarioService.adicionar(nome);
+  }
 }

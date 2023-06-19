@@ -1,15 +1,19 @@
 import { ValueConverter } from '@angular/compiler/src/render3/view/template';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FuncionarioService } from './funcionario.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   funcionarios = [];
 
-  aoAdicionar(funcionario){
-    this.funcionarios.push(funcionario);
+  constructor(private funcionarioService: FuncionarioService){
+  }
+
+  ngOnInit(){
+    this.funcionarios = this.funcionarioService.consultar();
   }
 }
