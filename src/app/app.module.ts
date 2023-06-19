@@ -10,6 +10,7 @@ import { FuncionarioCardComponent } from './funcionario-card/funcionario-card.co
 import { FuncionarioFormComponent } from './funcionario-form/funcionario-form.component';
 import { CampoColoridoDirective } from './campo-colorido.directive';
 import { FuncionarioService } from './funcionario.service';
+import { FuncionarioAbreviadoService } from './funcionario-abreviado.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,9 @@ import { FuncionarioService } from './funcionario.service';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [FuncionarioService],
+  providers: [
+    {provide: FuncionarioService, useClass: FuncionarioAbreviadoService}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
