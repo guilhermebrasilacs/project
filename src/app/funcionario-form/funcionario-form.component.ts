@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { Output } from '@angular/core';
 import { FuncionarioService } from '../funcionario.service';
+import { LogService } from '../log.service';
 
 
 @Component({
@@ -15,10 +16,13 @@ export class FuncionarioFormComponent{
   nome;
   adicionado=false;
   
-  constructor(private funcionarioService: FuncionarioService){
-  }
+  constructor(
+    private funcionarioService: FuncionarioService,
+    private logService: LogService
+    ){}
 
   adicionar(nome: string){
     this.funcionarioService.adicionar(nome);
+    this.logService.log(`Adicionando ${nome}`)
   }
 }
